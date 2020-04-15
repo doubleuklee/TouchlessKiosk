@@ -55,10 +55,9 @@ class _TouchlessKioskAppPageState extends State<TouchlessKioskAppPage> {
         children: <Widget>[
           GestureDetector(
             onTap: () {
-              print("taped");
             },
             onTapDown: (TapDownDetails detail) {
-              print((detail.globalPosition.dx.toString() + " / " + (detail.globalPosition.dy-150).toString());
+              print(detail.globalPosition.dx.toString() + " / " + (detail.globalPosition.dy - 150).toString());
             },
 
             child: Container(
