@@ -34,6 +34,9 @@ class TouchlessKioskAppPage extends StatefulWidget {
 
 class _TouchlessKioskAppPageState extends State<TouchlessKioskAppPage> {
 
+  var message = "sample";
+
+
   @override
   void initState() {
     super.initState();
@@ -47,10 +50,28 @@ class _TouchlessKioskAppPageState extends State<TouchlessKioskAppPage> {
       appBar: AppBar(
         title: Text("손대기 싫어요!")
       ),
-      body: CameraView(
-        widget.cameras
-      )
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          GestureDetector(
+            onTap: () {
+              print("taped");
+            },
+            onTapDown: (TapDownDetails detail) {
+              print((detail.globalPosition.dx.toString() + " / " + (detail.globalPosition.dy-150).toString());
+            },
 
+            child: Container(
+              child: CameraView(
+                widget.cameras
+              ),
+            ),
+          ),
+          Text(
+            message
+          ),
+        ]
+      ),
     );
   }
 }
